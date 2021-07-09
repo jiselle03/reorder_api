@@ -27,7 +27,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.get('/items', (req, res) => {
       db.collection('items').find().toArray()
         .then(items => {
-          res.json({ items: items });
+          res.json(items);
         })
         .catch(error => console.error(error));
     });
@@ -35,7 +35,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.post('/items', (req, res) => {
       itemsCollection.insertOne(req.body)
         .then(result => {
-          res.json({ items: result.ops })
+          res.json(result.ops[0]);
         })
         .catch(error => console.error(error));
     });
