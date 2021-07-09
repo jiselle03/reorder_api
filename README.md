@@ -15,5 +15,5 @@ Build the .env file:
 Then run server:
 
 ```
-node server.js
+npm run dev
 ```
